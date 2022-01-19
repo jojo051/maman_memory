@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mamanmemory-dev-174927-authRole",
+      "UnauthRoleArn": "arn:aws:iam::560932252678:role/amplify-mamanmemory-dev-174927-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::560932252678:role/amplify-mamanmemory-dev-174927-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-mamanmemory-dev-174927-deployment",
+      "UnauthRoleName": "amplify-mamanmemory-dev-174927-unauthRole",
+      "StackName": "amplify-mamanmemory-dev-174927",
+      "StackId": "arn:aws:cloudformation:eu-central-1:560932252678:stack/amplify-mamanmemory-dev-174927/c590c1c0-7947-11ec-9309-02eb64829778",
+      "AmplifyAppId": "d2weyd3tl3a4a0"
+    }
+  }
+}
