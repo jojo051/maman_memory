@@ -1,0 +1,71 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type User
+@model
+@auth(rules: [
+  {allow: groups, groups: ["users"]},
+  {allow: groups, groups: ["admin"]}
+  ]) 
+{
+id:ID!
+name:String!
+email:String!
+childrens: [Children] @hasMany(indexName:"byUser",fields:["id"])
+}
+
+type Children
+@model
+@auth(rules: [
+  {allow: groups, groups: ["users"]},
+  {allow: groups, groups: ["admin"]}
+  ])
+{
+id: ID!  
+userID: ID! @index(name: "byUser", sortKeyFields: ["name"])
+name:String!
+dailyStatements: [DailyStatement] @hasMany(indexName:"byChlidren",fields:["id"])
+}
+
+type DailyStatement
+@model
+@auth(rules: [
+  {allow: groups, groups: ["users"]},
+  {allow: groups, groups: ["admin"]}
+  ])
+{
+id:ID!  
+childrenID:ID! @index (name:"byChlidren",sortKeyFields:["date","pee","poop"])
+date: String!
+pee: Int
+poop: Int
+milkProductions: [MilkProduction] @hasMany(indexName:"byDailyStatement",fields:["id"])
+milkConsomaions: [MilkConsomaion] @hasMany(indexName:"byDailyStatement",fields:["id"])
+}
+
+type MilkProduction
+@model
+@auth(rules: [
+  {allow: groups, groups: ["users"]},
+  {allow: groups, groups: ["admin"]}
+  ]) 
+{
+id:ID!  
+dailyStatementID:ID! @index (name:"byDailyStatement",sortKeyFields:["volume","time"]) 
+volume:String
+time:String
+}
+
+type MilkConsomaion
+@model
+@auth(rules: [
+  {allow: groups, groups: ["users"]},
+  {allow: groups, groups: ["admin"]}
+  ])  
+{
+id:ID!
+dailyStatementID:ID! @index (name:"byDailyStatement",sortKeyFields:["volume","time"])  
+volume:String
+time:String
+}

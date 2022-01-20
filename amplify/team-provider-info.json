@@ -10,6 +10,11 @@
       "StackName": "amplify-mamanmemory-dev-174927",
       "StackId": "arn:aws:cloudformation:eu-central-1:560932252678:stack/amplify-mamanmemory-dev-174927/c590c1c0-7947-11ec-9309-02eb64829778",
       "AmplifyAppId": "d2weyd3tl3a4a0"
+    },
+    "categories": {
+      "auth": {
+        "mamanmemory3e3958e6": {}
+      }
     }
   }
 }
