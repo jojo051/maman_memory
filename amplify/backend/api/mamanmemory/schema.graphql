@@ -5,8 +5,8 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 type User
 @model
 @auth(rules: [
-  {allow: groups, groups: ["users"]},
-  {allow: groups, groups: ["admin"]}
+  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
+  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
   ]) 
 {
 id:ID!
@@ -18,8 +18,8 @@ childrens: [Children] @hasMany(indexName:"byUser",fields:["id"])
 type Children
 @model
 @auth(rules: [
-  {allow: groups, groups: ["users"]},
-  {allow: groups, groups: ["admin"]}
+  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
+  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
   ])
 {
 id: ID!  
@@ -31,8 +31,8 @@ dailyStatements: [DailyStatement] @hasMany(indexName:"byChlidren",fields:["id"])
 type DailyStatement
 @model
 @auth(rules: [
-  {allow: groups, groups: ["users"]},
-  {allow: groups, groups: ["admin"]}
+  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
+  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
   ])
 {
 id:ID!  
@@ -47,8 +47,8 @@ milkConsomaions: [MilkConsomaion] @hasMany(indexName:"byDailyStatement",fields:[
 type MilkProduction
 @model
 @auth(rules: [
-  {allow: groups, groups: ["users"]},
-  {allow: groups, groups: ["admin"]}
+  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
+  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
   ]) 
 {
 id:ID!  
@@ -60,8 +60,8 @@ time:String
 type MilkConsomaion
 @model
 @auth(rules: [
-  {allow: groups, groups: ["users"]},
-  {allow: groups, groups: ["admin"]}
+  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
+  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
   ])  
 {
 id:ID!

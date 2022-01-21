@@ -1,6 +1,6 @@
 {
   "auth": {
-    "mamanmemory3e3958e6": {
+    "mamanmemorycc78a5da": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -34,19 +34,12 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authmamanmemorycc78a5da"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authmamanmemory3e3958e6"
-              }
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }

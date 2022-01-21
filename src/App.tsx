@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Test from './Components/Test';
+import Autentification from './Components/Autentification';
+import TestAppelApi from './Components/TestAppelApi';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         >
           Learn React
         </a>
+        <Test/>
+        <Autentification/>
+        <TestAppelApi/>
       </header>
     </div>
   );
