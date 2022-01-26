@@ -90,6 +90,8 @@ export const createChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -116,6 +118,8 @@ export const updateChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -142,6 +146,8 @@ export const deleteChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -163,28 +169,8 @@ export const createDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }
@@ -201,28 +187,8 @@ export const updateDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }
@@ -239,118 +205,8 @@ export const deleteDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createMilkProduction = /* GraphQL */ `
-  mutation CreateMilkProduction(
-    $input: CreateMilkProductionInput!
-    $condition: ModelMilkProductionConditionInput
-  ) {
-    createMilkProduction(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateMilkProduction = /* GraphQL */ `
-  mutation UpdateMilkProduction(
-    $input: UpdateMilkProductionInput!
-    $condition: ModelMilkProductionConditionInput
-  ) {
-    updateMilkProduction(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteMilkProduction = /* GraphQL */ `
-  mutation DeleteMilkProduction(
-    $input: DeleteMilkProductionInput!
-    $condition: ModelMilkProductionConditionInput
-  ) {
-    deleteMilkProduction(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createMilkConsomaion = /* GraphQL */ `
-  mutation CreateMilkConsomaion(
-    $input: CreateMilkConsomaionInput!
-    $condition: ModelMilkConsomaionConditionInput
-  ) {
-    createMilkConsomaion(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateMilkConsomaion = /* GraphQL */ `
-  mutation UpdateMilkConsomaion(
-    $input: UpdateMilkConsomaionInput!
-    $condition: ModelMilkConsomaionConditionInput
-  ) {
-    updateMilkConsomaion(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteMilkConsomaion = /* GraphQL */ `
-  mutation DeleteMilkConsomaion(
-    $input: DeleteMilkConsomaionInput!
-    $condition: ModelMilkConsomaionConditionInput
-  ) {
-    deleteMilkConsomaion(input: $input, condition: $condition) {
-      id
-      dailyStatementID
-      volume
-      time
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }

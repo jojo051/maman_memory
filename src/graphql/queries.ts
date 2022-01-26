@@ -57,6 +57,8 @@ export const getChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -96,28 +98,8 @@ export const getDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }
@@ -136,74 +118,8 @@ export const listDailyStatements = /* GraphQL */ `
         date
         pee
         poop
-        milkProductions {
-          nextToken
-        }
-        milkConsomaions {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getMilkProduction = /* GraphQL */ `
-  query GetMilkProduction($id: ID!) {
-    getMilkProduction(id: $id) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listMilkProductions = /* GraphQL */ `
-  query ListMilkProductions(
-    $filter: ModelMilkProductionFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listMilkProductions(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        dailyStatementID
-        volume
-        time
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getMilkConsomaion = /* GraphQL */ `
-  query GetMilkConsomaion($id: ID!) {
-    getMilkConsomaion(id: $id) {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listMilkConsomaions = /* GraphQL */ `
-  query ListMilkConsomaions(
-    $filter: ModelMilkConsomaionFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listMilkConsomaions(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        dailyStatementID
-        volume
-        time
+        milkProduction
+        milkConsomaion
         createdAt
         updatedAt
       }

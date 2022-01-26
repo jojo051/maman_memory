@@ -95,40 +95,8 @@ export type DailyStatement = {
   date: string,
   pee?: number | null,
   poop?: number | null,
-  milkProductions?: ModelMilkProductionConnection | null,
-  milkConsomaions?: ModelMilkConsomaionConnection | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type ModelMilkProductionConnection = {
-  __typename: "ModelMilkProductionConnection",
-  items:  Array<MilkProduction | null >,
-  nextToken?: string | null,
-};
-
-export type MilkProduction = {
-  __typename: "MilkProduction",
-  id: string,
-  dailyStatementID: string,
-  volume?: string | null,
-  time?: string | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type ModelMilkConsomaionConnection = {
-  __typename: "ModelMilkConsomaionConnection",
-  items:  Array<MilkConsomaion | null >,
-  nextToken?: string | null,
-};
-
-export type MilkConsomaion = {
-  __typename: "MilkConsomaion",
-  id: string,
-  dailyStatementID: string,
-  volume?: string | null,
-  time?: string | null,
+  milkProduction?: number | null,
+  milkConsomaion?: number | null,
   createdAt: string,
   updatedAt: string,
 };
@@ -189,6 +157,8 @@ export type CreateDailyStatementInput = {
   date: string,
   pee?: number | null,
   poop?: number | null,
+  milkProduction?: number | null,
+  milkConsomaion?: number | null,
 };
 
 export type ModelDailyStatementConditionInput = {
@@ -196,6 +166,8 @@ export type ModelDailyStatementConditionInput = {
   date?: ModelStringInput | null,
   pee?: ModelIntInput | null,
   poop?: ModelIntInput | null,
+  milkProduction?: ModelIntInput | null,
+  milkConsomaion?: ModelIntInput | null,
   and?: Array< ModelDailyStatementConditionInput | null > | null,
   or?: Array< ModelDailyStatementConditionInput | null > | null,
   not?: ModelDailyStatementConditionInput | null,
@@ -219,63 +191,11 @@ export type UpdateDailyStatementInput = {
   date?: string | null,
   pee?: number | null,
   poop?: number | null,
+  milkProduction?: number | null,
+  milkConsomaion?: number | null,
 };
 
 export type DeleteDailyStatementInput = {
-  id: string,
-};
-
-export type CreateMilkProductionInput = {
-  id?: string | null,
-  dailyStatementID: string,
-  volume?: string | null,
-  time?: string | null,
-};
-
-export type ModelMilkProductionConditionInput = {
-  dailyStatementID?: ModelIDInput | null,
-  volume?: ModelStringInput | null,
-  time?: ModelStringInput | null,
-  and?: Array< ModelMilkProductionConditionInput | null > | null,
-  or?: Array< ModelMilkProductionConditionInput | null > | null,
-  not?: ModelMilkProductionConditionInput | null,
-};
-
-export type UpdateMilkProductionInput = {
-  id: string,
-  dailyStatementID?: string | null,
-  volume?: string | null,
-  time?: string | null,
-};
-
-export type DeleteMilkProductionInput = {
-  id: string,
-};
-
-export type CreateMilkConsomaionInput = {
-  id?: string | null,
-  dailyStatementID: string,
-  volume?: string | null,
-  time?: string | null,
-};
-
-export type ModelMilkConsomaionConditionInput = {
-  dailyStatementID?: ModelIDInput | null,
-  volume?: ModelStringInput | null,
-  time?: ModelStringInput | null,
-  and?: Array< ModelMilkConsomaionConditionInput | null > | null,
-  or?: Array< ModelMilkConsomaionConditionInput | null > | null,
-  not?: ModelMilkConsomaionConditionInput | null,
-};
-
-export type UpdateMilkConsomaionInput = {
-  id: string,
-  dailyStatementID?: string | null,
-  volume?: string | null,
-  time?: string | null,
-};
-
-export type DeleteMilkConsomaionInput = {
   id: string,
 };
 
@@ -309,29 +229,11 @@ export type ModelDailyStatementFilterInput = {
   date?: ModelStringInput | null,
   pee?: ModelIntInput | null,
   poop?: ModelIntInput | null,
+  milkProduction?: ModelIntInput | null,
+  milkConsomaion?: ModelIntInput | null,
   and?: Array< ModelDailyStatementFilterInput | null > | null,
   or?: Array< ModelDailyStatementFilterInput | null > | null,
   not?: ModelDailyStatementFilterInput | null,
-};
-
-export type ModelMilkProductionFilterInput = {
-  id?: ModelIDInput | null,
-  dailyStatementID?: ModelIDInput | null,
-  volume?: ModelStringInput | null,
-  time?: ModelStringInput | null,
-  and?: Array< ModelMilkProductionFilterInput | null > | null,
-  or?: Array< ModelMilkProductionFilterInput | null > | null,
-  not?: ModelMilkProductionFilterInput | null,
-};
-
-export type ModelMilkConsomaionFilterInput = {
-  id?: ModelIDInput | null,
-  dailyStatementID?: ModelIDInput | null,
-  volume?: ModelStringInput | null,
-  time?: ModelStringInput | null,
-  and?: Array< ModelMilkConsomaionFilterInput | null > | null,
-  or?: Array< ModelMilkConsomaionFilterInput | null > | null,
-  not?: ModelMilkConsomaionFilterInput | null,
 };
 
 export type CreateUserMutationVariables = {
@@ -438,6 +340,8 @@ export type CreateChildrenMutation = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -468,6 +372,8 @@ export type UpdateChildrenMutation = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -498,6 +404,8 @@ export type DeleteChildrenMutation = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -521,32 +429,8 @@ export type CreateDailyStatementMutation = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -565,32 +449,8 @@ export type UpdateDailyStatementMutation = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -609,134 +469,8 @@ export type DeleteDailyStatementMutation = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type CreateMilkProductionMutationVariables = {
-  input: CreateMilkProductionInput,
-  condition?: ModelMilkProductionConditionInput | null,
-};
-
-export type CreateMilkProductionMutation = {
-  createMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type UpdateMilkProductionMutationVariables = {
-  input: UpdateMilkProductionInput,
-  condition?: ModelMilkProductionConditionInput | null,
-};
-
-export type UpdateMilkProductionMutation = {
-  updateMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeleteMilkProductionMutationVariables = {
-  input: DeleteMilkProductionInput,
-  condition?: ModelMilkProductionConditionInput | null,
-};
-
-export type DeleteMilkProductionMutation = {
-  deleteMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type CreateMilkConsomaionMutationVariables = {
-  input: CreateMilkConsomaionInput,
-  condition?: ModelMilkConsomaionConditionInput | null,
-};
-
-export type CreateMilkConsomaionMutation = {
-  createMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type UpdateMilkConsomaionMutationVariables = {
-  input: UpdateMilkConsomaionInput,
-  condition?: ModelMilkConsomaionConditionInput | null,
-};
-
-export type UpdateMilkConsomaionMutation = {
-  updateMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeleteMilkConsomaionMutationVariables = {
-  input: DeleteMilkConsomaionInput,
-  condition?: ModelMilkConsomaionConditionInput | null,
-};
-
-export type DeleteMilkConsomaionMutation = {
-  deleteMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -813,6 +547,8 @@ export type GetChildrenQuery = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -860,32 +596,8 @@ export type GetDailyStatementQuery = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -907,90 +619,8 @@ export type ListDailyStatementsQuery = {
       date: string,
       pee?: number | null,
       poop?: number | null,
-      milkProductions?:  {
-        __typename: "ModelMilkProductionConnection",
-        nextToken?: string | null,
-      } | null,
-      milkConsomaions?:  {
-        __typename: "ModelMilkConsomaionConnection",
-        nextToken?: string | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetMilkProductionQueryVariables = {
-  id: string,
-};
-
-export type GetMilkProductionQuery = {
-  getMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListMilkProductionsQueryVariables = {
-  filter?: ModelMilkProductionFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListMilkProductionsQuery = {
-  listMilkProductions?:  {
-    __typename: "ModelMilkProductionConnection",
-    items:  Array< {
-      __typename: "MilkProduction",
-      id: string,
-      dailyStatementID: string,
-      volume?: string | null,
-      time?: string | null,
-      createdAt: string,
-      updatedAt: string,
-    } | null >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetMilkConsomaionQueryVariables = {
-  id: string,
-};
-
-export type GetMilkConsomaionQuery = {
-  getMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListMilkConsomaionsQueryVariables = {
-  filter?: ModelMilkConsomaionFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListMilkConsomaionsQuery = {
-  listMilkConsomaions?:  {
-    __typename: "ModelMilkConsomaionConnection",
-    items:  Array< {
-      __typename: "MilkConsomaion",
-      id: string,
-      dailyStatementID: string,
-      volume?: string | null,
-      time?: string | null,
+      milkProduction?: number | null,
+      milkConsomaion?: number | null,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -1082,6 +712,8 @@ export type OnCreateChildrenSubscription = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -1107,6 +739,8 @@ export type OnUpdateChildrenSubscription = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -1132,6 +766,8 @@ export type OnDeleteChildrenSubscription = {
         date: string,
         pee?: number | null,
         poop?: number | null,
+        milkProduction?: number | null,
+        milkConsomaion?: number | null,
         createdAt: string,
         updatedAt: string,
       } | null >,
@@ -1150,32 +786,8 @@ export type OnCreateDailyStatementSubscription = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -1189,32 +801,8 @@ export type OnUpdateDailyStatementSubscription = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -1228,104 +816,8 @@ export type OnDeleteDailyStatementSubscription = {
     date: string,
     pee?: number | null,
     poop?: number | null,
-    milkProductions?:  {
-      __typename: "ModelMilkProductionConnection",
-      items:  Array< {
-        __typename: "MilkProduction",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    milkConsomaions?:  {
-      __typename: "ModelMilkConsomaionConnection",
-      items:  Array< {
-        __typename: "MilkConsomaion",
-        id: string,
-        dailyStatementID: string,
-        volume?: string | null,
-        time?: string | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null >,
-      nextToken?: string | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateMilkProductionSubscription = {
-  onCreateMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateMilkProductionSubscription = {
-  onUpdateMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteMilkProductionSubscription = {
-  onDeleteMilkProduction?:  {
-    __typename: "MilkProduction",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateMilkConsomaionSubscription = {
-  onCreateMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateMilkConsomaionSubscription = {
-  onUpdateMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteMilkConsomaionSubscription = {
-  onDeleteMilkConsomaion?:  {
-    __typename: "MilkConsomaion",
-    id: string,
-    dailyStatementID: string,
-    volume?: string | null,
-    time?: string | null,
+    milkProduction?: number | null,
+    milkConsomaion?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,

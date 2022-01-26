@@ -78,6 +78,8 @@ export const onCreateChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -101,6 +103,8 @@ export const onUpdateChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -124,6 +128,8 @@ export const onDeleteChildren = /* GraphQL */ `
           date
           pee
           poop
+          milkProduction
+          milkConsomaion
           createdAt
           updatedAt
         }
@@ -142,28 +148,8 @@ export const onCreateDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }
@@ -177,28 +163,8 @@ export const onUpdateDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }
@@ -212,100 +178,8 @@ export const onDeleteDailyStatement = /* GraphQL */ `
       date
       pee
       poop
-      milkProductions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      milkConsomaions {
-        items {
-          id
-          dailyStatementID
-          volume
-          time
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateMilkProduction = /* GraphQL */ `
-  subscription OnCreateMilkProduction {
-    onCreateMilkProduction {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateMilkProduction = /* GraphQL */ `
-  subscription OnUpdateMilkProduction {
-    onUpdateMilkProduction {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteMilkProduction = /* GraphQL */ `
-  subscription OnDeleteMilkProduction {
-    onDeleteMilkProduction {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateMilkConsomaion = /* GraphQL */ `
-  subscription OnCreateMilkConsomaion {
-    onCreateMilkConsomaion {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateMilkConsomaion = /* GraphQL */ `
-  subscription OnUpdateMilkConsomaion {
-    onUpdateMilkConsomaion {
-      id
-      dailyStatementID
-      volume
-      time
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteMilkConsomaion = /* GraphQL */ `
-  subscription OnDeleteMilkConsomaion {
-    onDeleteMilkConsomaion {
-      id
-      dailyStatementID
-      volume
-      time
+      milkProduction
+      milkConsomaion
       createdAt
       updatedAt
     }

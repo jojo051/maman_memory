@@ -36,36 +36,10 @@ type DailyStatement
   ])
 {
 id:ID!  
-childrenID:ID! @index (name:"byChlidren",sortKeyFields:["date","pee","poop"])
+childrenID:ID! @index (name:"byChlidren",sortKeyFields:["date","pee","poop","milkProduction","milkConsomaion"])
 date: String!
 pee: Int
 poop: Int
-milkProductions: [MilkProduction] @hasMany(indexName:"byDailyStatement",fields:["id"])
-milkConsomaions: [MilkConsomaion] @hasMany(indexName:"byDailyStatement",fields:["id"])
-}
-
-type MilkProduction
-@model
-@auth(rules: [
-  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
-  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
-  ]) 
-{
-id:ID!  
-dailyStatementID:ID! @index (name:"byDailyStatement",sortKeyFields:["volume","time"]) 
-volume:String
-time:String
-}
-
-type MilkConsomaion
-@model
-@auth(rules: [
-  {allow: groups, groups: ["users"], operations: [create, update, read, delete]},
-  {allow: groups, groups: ["admin"], operations: [create, update, read, delete]}
-  ])  
-{
-id:ID!
-dailyStatementID:ID! @index (name:"byDailyStatement",sortKeyFields:["volume","time"])  
-volume:String
-time:String
+milkProduction: Int
+milkConsomaion: Int
 }
